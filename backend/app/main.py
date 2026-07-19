@@ -49,14 +49,18 @@ async def http_exception_handler(request: Request, exc: HTTPException) -> JSONRe
     return JSONResponse(status_code=exc.status_code, content=body)
 
 
-app.include_router(documents.router, prefix="/api")
-app.include_router(analysis.router, prefix="/api")
-app.include_router(dashboard.router, prefix="/api")
-app.include_router(transactions.router, prefix="/api")
-app.include_router(debt.router, prefix="/api")
-app.include_router(chat.router, prefix="/api")
-app.include_router(savings.router, prefix="/api")
-app.include_router(budget.router, prefix="/api")
+for router in [
+    documents.router,
+    analysis.router,
+    dashboard.router,
+    transactions.router,
+    debt.router,
+    chat.router,
+    savings.router,
+    budget.router,
+]:
+    app.include_router(router, prefix="/api")
+    app.include_router(router)
 
 
 @app.get("/health", response_model=HealthResponse)
