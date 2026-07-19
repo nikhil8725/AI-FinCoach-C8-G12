@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: fincoach-backend
+Version: 0.1.0
+Summary: FinCoach AI backend — FastAPI + LangGraph multi-agent financial coach
+Requires-Python: >=3.11
+Requires-Dist: fastapi==0.115.6
+Requires-Dist: uvicorn[standard]==0.34.0
+Requires-Dist: langgraph==0.2.62
+Requires-Dist: langchain-core==0.3.28
+Requires-Dist: openai==1.59.6
+Requires-Dist: sqlalchemy==2.0.36
+Requires-Dist: chromadb==0.5.23
+Requires-Dist: pandas==2.2.3
+Requires-Dist: openpyxl==3.1.5
+Requires-Dist: pdfplumber==0.11.4
+Requires-Dist: reportlab==4.2.5
+Requires-Dist: pydantic==2.10.4
+Requires-Dist: pydantic-settings==2.7.1
+Requires-Dist: python-multipart==0.0.20
+Requires-Dist: python-dateutil==2.9.0.post0
+Provides-Extra: dev
+Requires-Dist: pytest==8.3.4; extra == "dev"
+Requires-Dist: pytest-asyncio==0.25.1; extra == "dev"
+Requires-Dist: httpx==0.28.1; extra == "dev"
+Requires-Dist: ruff==0.8.6; extra == "dev"

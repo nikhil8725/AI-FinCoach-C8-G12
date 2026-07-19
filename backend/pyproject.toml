@@ -1,0 +1,50 @@
+[project]
+name = "fincoach-backend"
+version = "0.1.0"
+description = "FinCoach AI backend — FastAPI + LangGraph multi-agent financial coach"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.34.0",
+    "langgraph==0.2.62",
+    "langchain-core==0.3.28",
+    "openai==1.59.6",
+    "sqlalchemy==2.0.36",
+    "chromadb==0.5.23",
+    "posthog<4",  # chromadb 0.5.23's telemetry call is incompatible with posthog>=4's capture() signature
+    "pandas==2.2.3",
+    "openpyxl==3.1.5",
+    "pdfplumber==0.11.4",
+    "reportlab==4.2.5",
+    "pydantic==2.10.4",
+    "pydantic-settings==2.7.1",
+    "python-multipart==0.0.20",
+    "python-dateutil==2.9.0.post0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.4",
+    "pytest-asyncio==0.25.1",
+    "httpx==0.28.1",
+    "ruff==0.8.6",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["app"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# B008: FastAPI's Depends()-as-default-argument is the framework's own DI pattern, not a bug.
+ignore = ["B008"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

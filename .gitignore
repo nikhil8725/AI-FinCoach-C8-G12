@@ -1,0 +1,9 @@
+# Local environment and runtime artifacts
+backend/.env
+backend/.venv/
+backend/chroma_data/
+backend/logs/
+backend/uploads/
+__pycache__/
+*.py[cod]
+.DS_Store
