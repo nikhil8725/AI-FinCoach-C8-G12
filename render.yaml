@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: fincoach-backend
+    env: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: FAST_MODEL
+        value: openai/gpt-5-mini
+      - key: SMART_MODEL
+        value: anthropic/claude-sonnet-5
+      - key: FALLBACK_MODEL
+        value: qwen/qwen3.7-plus
+      - key: CORS_ORIGIN
+        value: https://your-frontend-domain.com
+      - key: DATABASE_URL
+        value: sqlite:////data/fincoach.db
+      - key: CHROMA_DIR
+        value: /data/chroma_data
+      - key: UPLOADS_DIR
+        value: /data/uploads
+      - key: LOG_DIR
+        value: /data/logs
