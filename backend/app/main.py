@@ -59,6 +59,7 @@ app.include_router(savings.router, prefix="/api")
 app.include_router(budget.router, prefix="/api")
 
 
+@app.get("/health", response_model=HealthResponse)
 @app.get("/api/health", response_model=HealthResponse)
 def health() -> HealthResponse:
     return HealthResponse(ok=True)
